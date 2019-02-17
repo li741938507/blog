@@ -1,0 +1,126 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>我的博客</title>
+    <link href="../../public/css/view.css" rel="stylesheet" type="text/css">
+    <link href="../../public/css/footer.css" rel="stylesheet" type="text/css">
+    <link href="../../public/fontAwesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="../../public/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+<div id="hide-bg"></div>
+<div id="nav" class="area">
+    <span>Blog</span>
+    <div id="menu">
+        <ul id="menu_list">
+            <li><a href="/">HOME</a></li>
+            <li><a href="/visitor/about">ABOUT</a></li>
+            <li><a href="">STUDY</a></li>
+            <li><a href="javascript:login();">LOGIN</a></li>
+        </ul>
+        <div id="list">
+            <div class="box1"></div>
+            <div class="box2"></div>
+        </div>
+    </div>
+</div>
+<div class="hide-bg"></div>
+<div id="home">
+    <h1>Single Post</h1>
+</div>
+
+
+<div id="container">
+    <div class="blog-single-post-thumb">
+        <div class="blog-single-post-title">
+            <h2>{{content.title}}</h2>
+        </div>
+        <div class="blog-single-post-format">
+                    <span>
+                        <a href=""><img src="../../public/images/author-image1.jpg" class="img-circle" />
+                            {{content.nickname}}
+                        </a>
+                    </span>
+                    <span>
+                        <i class="fa fa-date"></i>
+                        {{content.addTime|date('Y年m月d日 H:i:s')}}
+                    </span>
+                    <span>
+                        <a href="">
+                            <i class="fa fa-comment-o"></i>
+                            {% if content.comments %}
+                            {{content.comments}}
+                            {%else%}
+                            0
+                            {%endif%}
+                        </a>
+                    </span>
+                    <span>
+                            <img id="img2" src="../../public/images/view.png" />
+                        {% if content.views %}
+                        {{content.views+1}}
+                        {%else%}
+                        0
+                        {%endif%}
+                    </span>
+        </div>
+        <div class="blog-single-post-image">
+            <a href=""><img src="{{content.photo}}" /></a>
+        </div>
+        <div class="blog-single-post-des">
+            <p>
+                {{content.content}}
+            </p>
+        </div>
+
+    </div>
+    <div id="comments">
+        <h2>Comments</h2>
+        {% for visitor in contents%}
+        {%if visitor.vcomments!=0%}
+        <div id="comments-list">
+            <span>
+                <img src="{{visitor.vphoto}}" class="img-circle" />
+                    <i>{{visitor.nickname}}</i>
+            </span>
+                    <span>{{visitor.vtime|date('Y年m月d日 H:i:s')}}</span>
+                <p>{{visitor.vcomments}}</p>
+        </div>
+        {%else%}
+        <span class="wpl">暂无评论!</span>
+        {%endif%}
+        {%endfor%}
+    </div>
+    <div id="leave-comments">
+        <h2>Leave a Comment</h2>
+        <input type="text" name="name" id="name" placeholder="Name" />
+        <input type="email" name="email" id="email" placeholder="Email" />
+        <textarea type="text" placeholder="Message"></textarea>
+        <button>Post Your Comment</button>
+    </div>
+</div>
+
+
+
+<div id="footer">
+    <div class="contain">
+        <div class="c_t">
+            <div class="c_tl">
+                <h3>联系站长</h3>
+                <p><i class="fa fa-globe"></i>上海市宝山区共富三村</p>
+                <p><i class="fa fa-phone"></i>15026865131</p>
+                <p><i class="fa fa-save"></i>lijiahao741938507@qq.com</p>
+            </div>
+            <div class="c_tr">
+                <p>本站建于：2018.9.3</p>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../../public/js/jquery-1.12.4.min.js"></script>
+<script src="../../public/js/index.js"></script>
+</body>
+</html>

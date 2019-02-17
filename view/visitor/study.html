@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>我的博客</title>
+    <link href="../../public/css/study.css" rel="stylesheet" type="text/css">
+    <link href="../../public/css/footer.css" rel="stylesheet" type="text/css">
+    <link href="../../public/fontAwesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="../../public/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="../../public/css/bootstrap-theme.min.css" />
+</head>
+
+<body>
+<div id="hide-bg"></div>
+<div id="nav" class="area">
+    <span>Blog</span>
+    <div id="menu">
+        <ul id="menu_list">
+            <li><a href="/">HOME</a></li>
+            <li><a href="/visitor/about">ABOUT</a></li>
+            <li><a href="/visitor/study">STUDY</a></li>
+            <li class="logout-btn"><a href="javascript:void(0);">
+                Hello! {{userInfo.nickname}}
+                <i class="glyphicon glyphicon-triangle-bottom" style="font-size: 15px;padding-top:10px;padding-left:10px;float: right;"></i>
+            </a>
+            </li>
+            <div class="logout" style="display:none;">
+                <i class="glyphicon glyphicon-triangle-top"></i>
+                <div class="speech-bubble">
+                    <a href="/api/logout">退出登录</a>
+                </div>
+            </div>
+            </ul>
+        <div id="list">
+            <div class="box1"></div>
+            <div class="box2"></div>
+        </div>
+    </div>
+</div>
+<div class="hide-bg"></div>
+<div id="home">
+    <h1>Let's Study</h1>
+</div>
+
+
+<div class="container">
+
+</div>
+
+
+
+<div id="footer">
+    <div class="contain">
+        <div class="c_t">
+            <div class="c_tl">
+                <h3>联系站长</h3>
+                <p><i class="fa fa-globe"></i>上海市宝山区共富三村</p>
+                <p><i class="fa fa-phone"></i>15026865131</p>
+                <p><i class="fa fa-save"></i>lijiahao741938507@qq.com</p>
+            </div>
+            <div class="c_tr">
+                <p>本站建于：2018.9.3</p>
+            </div>
+        </div>
+
+        <div class="c_b">
+
+        </div>
+    </div>
+</div>
+<script src="../../public/js/jquery-1.12.4.min.js"></script>
+<script src="../../public/js/index.js"></script>
+<script src="../../public/js/bootstrap.min.js"></script>
+<script>
+    $(".logout-btn").click(function(){
+        $(".logout").toggle();
+    });
+</script>
+</body>
+</html>
